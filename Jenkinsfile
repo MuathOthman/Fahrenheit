@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 // Runs Maven's clean and package phases, which compiles your project and packages it into a JAR/WAR (without running unit tests)
-                sh 'mvn clean package -DskipTests'
+                sh 'mvn clean install'
             }
         }
         stage('Test') {
