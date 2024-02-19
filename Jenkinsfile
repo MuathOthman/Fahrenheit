@@ -28,6 +28,10 @@ pipeline {
         }
         success {
             echo 'Build succeeded!'
+            // Publish JUnit test results
+            junit '**/target/surefire-reports/TEST-*.xml'
+            // Generate JaCoCo code coverage report
+            jacoco(execPattern: '**/target/jacoco.exec')
         }
         failure {
             echo 'Build failed!'
